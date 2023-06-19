@@ -12,8 +12,6 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/v1/menu', require('./routes/menuRoute'))
-
 app.use(errorHandler)
 
 app.listen(port, () => {
