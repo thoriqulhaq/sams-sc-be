@@ -8,7 +8,7 @@ const Student = require('../models/studentModel')
 // @route   POST /api/students
 // @access  Public
 const createStudent = asyncHandler(async (req, res) => {
-const student = await Student.create({
+    const student = await Student.create({
         name: req.body.name,
         parentName: req.body.parentName,
         parentPhoneNum: req.body.parentPhoneNum,
@@ -22,15 +22,23 @@ const student = await Student.create({
         academicYear: req.body.academicYear,
         peminatan: req.body.peminatan,
     })
-    
+
     successResponse(res, 'New student successfully created', student, 201)
 })
 
+// @desc    Get all student data
+// @route   GET /api/v1/student
+// @access  Public
+const getStudentData = asyncHandler(async (req, res) => {
+    const students = await Student.find({});
+    successResponse(res, 'Student data retrieved successfully', students);
+});
 
 
 module.exports = {
-    createStudent
-    
+    createStudent,
+    getStudentData
+
 }
 
 
