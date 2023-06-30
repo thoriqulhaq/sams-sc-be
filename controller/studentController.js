@@ -35,10 +35,22 @@ const getStudentData = asyncHandler(async (req, res) => {
 });
 
 
+const getStudentById = asyncHandler(async (req, res) => {
+    const student = await Student.findById(req.params.id)
+    
+    if (!student) {
+        res.status(404)
+        throw new Error('Student not found')
+    }
+    
+    successResponse(res, 'Student data retrieved successfully', student);
+});
+
+
 module.exports = {
     createStudent,
-    getStudentData
-
+    getStudentData,
+    getStudentById
 }
 
 
