@@ -2,11 +2,6 @@ const asyncHandler = require('express-async-handler')
 const { successResponse } = require('../utils/apiResponse')
 const Student = require('../models/studentModel')
 
-
-
-// @desc    Add student
-// @route   POST /api/students
-// @access  Public
 const createStudent = asyncHandler(async (req, res) => {
     const student = await Student.create({
         name: req.body.name,
@@ -26,14 +21,11 @@ const createStudent = asyncHandler(async (req, res) => {
     successResponse(res, 'New student successfully created', student, 201)
 })
 
-// @desc    Get all student data
-// @route   GET /api/v1/student
-// @access  Public
+
 const getStudentData = asyncHandler(async (req, res) => {
     const students = await Student.find({});
     successResponse(res, 'Student data retrieved successfully', students);
 });
-
 
 const getStudentById = asyncHandler(async (req, res) => {
     const student = await Student.findById(req.params.id)
@@ -45,7 +37,6 @@ const getStudentById = asyncHandler(async (req, res) => {
     
     successResponse(res, 'Student data retrieved successfully', student);
 });
-
 
 module.exports = {
     createStudent,
