@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "test": "mocha ./tests/*.spec.js"
   },
   "author": "Thoriqulhaq Jibril",
   "license": "MIT",
   "dependencies": {
+    "chai-http": "^4.4.0",
     "colors": "^1.4.0",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
@@ -17,6 +19,10 @@
     "mongoose": "^7.2.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.22",
+    "sinon": "^15.2.0",
+    "supertest": "^6.3.3"
   }
 }
