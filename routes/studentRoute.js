@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { createStudent } = require('../controller/studentController')
-const { getStudentData } = require('../controller/studentController')
+const { createStudent, getStudentData, getStudentById } = require('../controller/studentController')
 
-router.route('/').post(createStudent)
-router.route('/').get(getStudentData)
+router.route('/').get(getStudentData).post(createStudent)
+router.route('/:id').get(getStudentById)
 
 
 

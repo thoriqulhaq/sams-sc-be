@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    image: sams-backend
+    build: .
+    networks:
+      - backend
+    ports:
+      - "4000:4000"
+
+  web-cli:
+    image: sams-backend
+    networks:
+      - backend
+    command: sh
+
+networks:
+  backend:
+    driver: bridge
